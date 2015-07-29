@@ -1,0 +1,45 @@
+<div class="col-md-12 table-responsive">
+    <table class="table table-stripped">
+        <tr><th colspan="5"><span data-ng-click="addRow()" class="glyphicon glyphicon-plus"></span></th></tr>
+        <tr>
+            <th>Description of Corrective Action</th>
+            <th>Action Taken By (name):</th>
+            <th>Company</th>
+            <th>Date</th>
+            <th></th>
+        </tr>
+        <tr data-ng-repeat="row in rows track by $index" data-ng-show="row.edit == true">
+            <td><textarea class="form-control" rows="1" name="description" id="description" cols="30" rows="10" data-ng-model="row.description"></textarea></td>
+            <td><input type="text" class="form-control" data-ng-model="row.name"/></td>
+            <td>
+                <select class="form-control" id="company" data-ng-model="row.company" data-ng-options="company.name as company.name for company in companies" required></select>
+            </td>
+            <td>
+                <div class="dropdown" style="z-index:1000;">
+                    <a class="dropdown-toggle my-toggle-select" id="date" role="button" data-toggle="dropdown" data-target="#" href="">
+                        <div class="input-append">
+                            <input type="text" class="form-control" data-ng-model="row.date" required>
+                            <span class="glyphicon glyphicon-calendar form-control-feedback" aria-hidden="true"></span>
+                        </div>
+                    </a>
+                    <ul style="z-index:1000;" class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+                        <datetimepicker style="z-index:1000;" data-ng-model="row.date" data-datetimepicker-config="{ dropdownSelector: '.my-toggle-select' }"></datetimepicker>
+                    </ul>
+                </div>
+            </td>
+            <td>
+                <span data-ng-click="row.edit = false;" class="glyphicon glyphicon-ok"></span>
+            </td>
+        </tr>
+        <tr data-ng-repeat="row in rows track by $index" data-ng-show="row.edit != true ">
+            <td>{{row.description}}</td>
+            <td>{{row.name}}</td>
+            <td>{{row.company}}</td>
+            <td>{{row.date}}</td>
+            <td>
+                <span data-ng-click="row.edit = true;" class="glyphicon glyphicon-edit"></span>
+                <span data-ng-click="removeRow($index)" class="glyphicon glyphicon-remove"></span>
+            </td>
+        </tr>
+    </table>
+</div>

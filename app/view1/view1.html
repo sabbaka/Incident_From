@@ -1,0 +1,83 @@
+<form action="">
+<div class="col-md-6">
+        <div class="form-group">
+            <label for="dateTime">Date and Time of Incident</label>
+            <div class="dropdown">
+                <a class="dropdown-toggle my-toggle-select" id="dateTime" role="button" data-toggle="dropdown" data-target="#" href="">
+                    <div class="input-append">
+                        <input type="text" class="form-control" data-ng-model="data.dateTime" required>
+                        <span class="glyphicon glyphicon-calendar form-control-feedback" aria-hidden="true"></span>
+                    </div>
+                </a>
+                <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+                    <datetimepicker data-ng-model="data.dateTime" data-datetimepicker-config="{ dropdownSelector: '.my-toggle-select' }"></datetimepicker>
+                </ul>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="reportedBy">Reported by</label>
+            <input type="text" class="form-control" id="reportedBy" data-ng-model="data.reportedBy" required>
+        </div>
+        <div class="form-group">
+            <label for="companyReporter">Company of Reporter</label>
+            <select class="form-control" id="companyReporter" data-ng-model="data.companyReporter" data-ng-options="company.name as company.name for company in companies" required></select>
+        </div>
+        <div class="form-group">
+            <label for="contactNumber">Contact Number</label>
+            <input type="text" class="form-control" id="contactNumber" data-ng-model="data.contactNumber" required>
+        </div>
+        <div class="form-group">
+            <label for="supervisorName">Supervisor Name</label>
+            <input type="text" class="form-control" id="supervisorName" data-ng-model="data.supervisorName">
+        </div>
+        <div class="form-group">
+            <label for="description">High Level Description of Incident</label>
+            <textarea class="form-control" id="description" data-ng-model="data.description" required></textarea>
+        </div>
+</div>
+<div class="col-md-6">
+    <div class="form-group">
+        <label for="wellNumber">Well Number</label>
+        <select class="form-control" id="wellNumber" data-ng-model="data.wellNumber" data-ng-options="well as well.name for well in wellTypes" required></select>
+    </div>
+    <div class="form-group">
+        <label for="reportedBy">Region</label>
+        <input type="text" data-ng-disabled="true" disabled class="form-control" id="region" data-ng-model="data.wellNumber.region">
+    </div>
+    <div class="form-group">
+        <label for="reportedBy">State</label>
+        <input type="text" data-ng-disabled="true" disabled class="form-control" id="state" data-ng-model="data.wellNumber.state">
+    </div>
+    <div class="form-group">
+        <label for="reportedBy">Field Office</label>
+        <input type="text" data-ng-disabled="true" disabled class="form-control" id="fieldoffice" data-ng-model="data.wellNumber.fieldoffice">
+    </div>
+    <div class="form-group">
+        <label for="reportedBy">Incident Severity (Check all that Apply):</label>
+        <div>
+        <label class="checkbox-inline">
+            <input type="checkbox" id="loss" data-ng-model="data.severity.loss" data-ng-disabled="data.severity.none"> Loss of well control
+        </label>
+        <label class="checkbox-inline">
+            <input type="checkbox" id="fatality" data-ng-model="data.severity.fatality" data-ng-disabled="data.severity.none"> Fatality(ies)
+        </label>
+        <label class="checkbox-inline">
+            <input type="checkbox" id="hospital" data-ng-model="data.severity.hospital" data-ng-disabled="data.severity.none"> Hospitalizaion or medical treatment
+        </label>
+        <label class="checkbox-inline">
+            <input type="checkbox" id="spilloffsite" data-ng-model="data.severity.spilloffsite" data-ng-disabled="data.severity.none"> Spill offsite > 50 Bbls
+        </label>
+        <label class="checkbox-inline">
+            <input type="checkbox" id="spillwater" data-ng-model="data.severity.spillwater" data-ng-disabled="data.severity.none"> Spill to water, any amount
+        </label>
+        <label class="checkbox-inline">
+            <input type="checkbox" id="propertydamage" data-ng-model="data.severity.propertydamage" data-ng-disabled="data.severity.none"> Property damage
+        </label>
+        </div>
+        <hr>
+        <label class="checkbox-inline">
+            <input type="checkbox" id="none" data-ng-model="data.severity.none"> None Apply
+        </label>
+    </div>
+</div>
+</form>
