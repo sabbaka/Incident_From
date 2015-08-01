@@ -5,13 +5,12 @@ angular.module('myApp.view2', ['ngRoute'])
 .config(['$routeProvider', function($routeProvider) {
   $routeProvider.when('/view2', {
     templateUrl: 'view2/view2.html',
-    controller: 'View2Ctrl'
+    controller: 'View2Ctrl',
+    activetab: 'view2'
   });
 }])
 
-.controller('View2Ctrl', function($scope, $rootScope, companies) {
-      console.log($rootScope.data)
-
+.controller('View2Ctrl', function($scope, $rootScope, companies,storageService) {
       $scope.companies = companies;
 
       $scope.addRow = function() {
@@ -30,4 +29,6 @@ angular.module('myApp.view2', ['ngRoute'])
       $scope.removeRow = function(index) {
           $scope.rows.splice(index, 1);
       };
+
+      console.log(storageService.getData());
 });

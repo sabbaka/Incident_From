@@ -1,4 +1,4 @@
-<form action="">
+<form name="form" novalidate>
 <div class="col-md-6">
         <div class="form-group">
             <label for="dateTime">Date and Time of Incident</label>
@@ -56,27 +56,27 @@
         <label for="reportedBy">Incident Severity (Check all that Apply):</label>
         <div>
         <label class="checkbox-inline">
-            <input type="checkbox" id="loss" data-ng-model="data.severity.loss" data-ng-disabled="data.severity.none"> Loss of well control
+            <input type="checkbox" id="loss" data-ng-model="data.severity.loss" data-ng-disabled="data.severity.none" ng-true-value="'Loss of well control'"> Loss of well control
         </label>
         <label class="checkbox-inline">
-            <input type="checkbox" id="fatality" data-ng-model="data.severity.fatality" data-ng-disabled="data.severity.none"> Fatality(ies)
+            <input type="checkbox" id="fatality" data-ng-model="data.severity.fatality" data-ng-disabled="data.severity.none" ng-true-value="'Fatality(ies)'"> Fatality(ies)
         </label>
         <label class="checkbox-inline">
-            <input type="checkbox" id="hospital" data-ng-model="data.severity.hospital" data-ng-disabled="data.severity.none"> Hospitalizaion or medical treatment
+            <input type="checkbox" id="hospital" data-ng-model="data.severity.hospital" data-ng-disabled="data.severity.none" ng-true-value="'Hospitalizaion or medical treatment'"> Hospitalizaion or medical treatment
         </label>
         <label class="checkbox-inline">
-            <input type="checkbox" id="spilloffsite" data-ng-model="data.severity.spilloffsite" data-ng-disabled="data.severity.none"> Spill offsite > 50 Bbls
+            <input type="checkbox" id="spilloffsite" data-ng-model="data.severity.spilloffsite" data-ng-disabled="data.severity.none" ng-true-value="'Spill offsite > 50 Bbls'"> Spill offsite > 50 Bbls
         </label>
         <label class="checkbox-inline">
-            <input type="checkbox" id="spillwater" data-ng-model="data.severity.spillwater" data-ng-disabled="data.severity.none"> Spill to water, any amount
+            <input type="checkbox" id="spillwater" data-ng-model="data.severity.spillwater" data-ng-disabled="data.severity.none" ng-true-value="'Spill to water, any amount'"> Spill to water, any amount
         </label>
         <label class="checkbox-inline">
-            <input type="checkbox" id="propertydamage" data-ng-model="data.severity.propertydamage" data-ng-disabled="data.severity.none"> Property damage
+            <input type="checkbox" id="propertydamage" data-ng-model="data.severity.propertydamage" data-ng-disabled="data.severity.none" ng-true-value="'Property damage'"> Property damage
         </label>
         </div>
         <hr>
         <label class="checkbox-inline">
-            <input type="checkbox" id="none" data-ng-model="data.severity.none"> None Apply
+            <input type="checkbox" id="none" data-ng-model="data.severity.none" ng-true-value="'None Apply'"> None Apply
         </label>
     </div>
 </div>

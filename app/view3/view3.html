@@ -1,5 +1,101 @@
-<p>This is the partial for view 3.</p>
-<p>
-  Showing of 'interpolate' filter:
-  {{ 'Current version is v%VERSION%.' | interpolate }}
-</p>
+<div class="col-md-12 table-responsive">
+    <form name="form">
+    <h2>General Information</h2>
+    <button type="submit">Submit</button>
+    <table class="table table-stripped">
+        <tr>
+            <td>Date and Time of Incident</td>
+            <td>
+                <input type="hidden" name="dateTime" ng-model="data.dateTime" required/>
+                <span>{{data.dateTime}}</span>
+                <span data-ng-show="form.dateTime.$error.required">This field is required.</span>
+            </td>
+        </tr>
+        <tr>
+            <td>Reported by</td>
+            <td>
+                <input type="hidden" name="reportedBy" ng-model="data.reportedBy" required/>
+                <span>{{data.reportedBy}}</span>
+                <span data-ng-show="form.reportedBy.$error.required">This field is required.</span>
+            </td>
+        </tr>
+        <tr>
+            <td>Company of Reporter</td>
+            <td>
+                <input type="hidden" name="companyReporter" ng-model="data.companyReporter" required/>
+                <span>{{data.companyReporter}}</span>
+                <span data-ng-show="form.companyReporter.$error.required">This field is required.</span>
+            </td>
+        </tr>
+        <tr>
+            <td>Contact Number</td>
+            <td>
+                <input type="hidden" name="contactNumber" ng-model="data.contactNumber" required/>
+                <span>{{data.contactNumber}}</span>
+                <span data-ng-show="form.contactNumber.$error.required">This field is required.</span>
+            </td>
+        </tr>
+        <tr>
+            <td>Supervisor Name</td>
+            <td>
+                <input type="hidden" name="supervisorName" ng-model="data.supervisorName" />
+                <span>{{data.supervisorName}}</span>
+            </td>
+        </tr>
+        <tr>
+            <td>High Level Description of Incident</td>
+            <td>
+                <input type="hidden" name="description" ng-model="data.description" required/>
+                <span>{{data.description}}</span>
+                <span data-ng-show="form.description.$error.required">This field is required.</span>
+            </td>
+        </tr>
+        <tr>
+            <td>Well Number</td>
+            <td>
+                <input type="hidden" name="wellNumber" ng-model="data.wellNumber" required/>
+                <span>{{data.wellNumber}}</span>
+                <span data-ng-show="form.wellNumber.$error.required">This field is required.</span>
+            </td>
+        </tr>
+        <tr>
+            <td>Region</td>
+            <td>
+                <input type="hidden" name="region" ng-model="data.wellNumber.region" />
+                <span>{{data.wellNumber.region}}</span>
+            </td>
+        </tr>
+        <tr>
+            <td>State</td>
+            <td>
+                <input type="hidden" name="state" ng-model="data.wellNumber.state" />
+                <span>{{data.wellNumber.state}}</span>
+            </td>
+        </tr>
+        <tr>
+            <td>Field Office</td>
+            <td>
+                <input type="hidden" name="fieldoffice" ng-model="data.wellNumber.fieldoffice" />
+                <span>{{data.wellNumber.fieldoffice}}</span>
+            </td>
+        </tr>
+        <tr>
+            <td>Incident Severity</td>
+            <td>
+                <input type="hidden" name="severity" ng-model="data.severity" required/>
+                <span data-ng-show="form.severity.$error.required">At least one is required.</span>
+                <ul data-ng-if="!data.severity.none" data-ng-repeat="option in data.severity">
+                    <li>{{option}}</li>
+                </ul>
+                <span data-ng-show="data.severity.none">None Apply</span>
+            </td>
+        </tr>
+    </table>
+    <h2>Immediate Corrective Action(s)</h2>
+        <table class="table table-stripped">
+
+        </table>
+    <table class="table table-stripped">
+    </table>
+    </form>
+</div>

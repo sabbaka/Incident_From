@@ -20,6 +20,17 @@ angular.module('myApp').constant('companies', [
   {'name':'Cisco'},
 ]);
 
+angular.module('myApp').controller('mainController', function($scope, $route, storageService) {
+  $scope.$route = $route;
+  $scope.tabs = [
+    {'title':'General Information','template':'view1/view1.html'},
+    {'title':'Corrective Actions','template':'view2/view2.html'},
+    {'title':'REVIEW and SUBMIT','template':'view3/view3.html'}
+  ];
+
+  storageService.addData('test');
+});
+
 angular.module('myApp').factory('wells', function wellsFactory() {
   // here we could use $http or $httpResourcess
   wellsFactory.get = function() {
@@ -44,6 +55,8 @@ angular.module('myApp').service('storageService', function(){
     return info;
   };
 
-  return this;
-
+    return {
+        addData: addData,
+        getData: getData
+    };
 });

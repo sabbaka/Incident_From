@@ -17,15 +17,25 @@
   <script src="bower_components/html5-boilerplate/dist/js/vendor/modernizr-2.8.3.min.js"></script>
 </head>
 <body>
+  <!--<div class="container-fluid" data-ng-controller="mainController">-->
   <div class="container-fluid">
     <div class="row">
       <div class="col-md-12">
-        <a href="#/view2">asdasdasd</a>
-        <tabset>
-          <tab heading="General Information" href="#/view1"></tab>
-          <tab heading="Corrective Actions" href="#/view2"></tab>
-          <tab heading="REVIEW and SUBMIT" href="#/view3"></tab>
-        </tabset>
+        <ul class="nav nav-tabs">
+          <li role="presentation" ng-class="{active: $route.current.activetab == 'view1'}"><a href="#/view1">General Information</a></li>
+          <li role="presentation" ng-class="{active: $route.current.activetab == 'view2'}"><a href="#/view2">Corrective Actions</a></li>
+          <li role="presentation" ng-class="{active: $route.current.activetab == 'view3'}"><a href="#/view3">REVIEW and SUBMIT</a></li>
+        </ul>
+        <!--<tabset>-->
+          <!--<tab heading="General Information" href="#/view1"></tab>-->
+          <!--<tab heading="Corrective Actions" href="#/view2"></tab>-->
+          <!--<tab heading="REVIEW and SUBMIT" href="#/view3"></tab>-->
+        <!--</tabset>-->
+        <!--<tabset>-->
+          <!--<tab data-ng-repeat="tab in tabs" heading="{{tab.title}}">-->
+            <!--<div data-ng-include="tab.template"></div>-->
+          <!--</tab>-->
+        <!--</tabset>-->
         <div class="row" ng-view></div>
       </div>
     </div>
