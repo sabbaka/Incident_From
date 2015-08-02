@@ -11,6 +11,12 @@ angular.module('myApp.view3', ['ngRoute'])
 }])
 
 .controller('View3Ctrl', function($scope, storageService) {
-    console.log(storageService.getData());
+    $scope.usPhone = /^\(?(\d{3})\)?[ .-]?(\d{3})[ .-]?(\d{4})$/;
+
       $scope.data = storageService.getData();
+
+      $scope.sendData = function() {
+          sessionStorage['data'] = JSON.stringify($scope.data);
+          window.open('results.html');
+      };
 });

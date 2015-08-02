@@ -26,17 +26,8 @@
           <li role="presentation" ng-class="{active: $route.current.activetab == 'view2'}"><a href="#/view2">Corrective Actions</a></li>
           <li role="presentation" ng-class="{active: $route.current.activetab == 'view3'}"><a href="#/view3">REVIEW and SUBMIT</a></li>
         </ul>
-        <!--<tabset>-->
-          <!--<tab heading="General Information" href="#/view1"></tab>-->
-          <!--<tab heading="Corrective Actions" href="#/view2"></tab>-->
-          <!--<tab heading="REVIEW and SUBMIT" href="#/view3"></tab>-->
-        <!--</tabset>-->
-        <!--<tabset>-->
-          <!--<tab data-ng-repeat="tab in tabs" heading="{{tab.title}}">-->
-            <!--<div data-ng-include="tab.template"></div>-->
-          <!--</tab>-->
-        <!--</tabset>-->
-        <div class="row" ng-view></div>
+        </div>
+        <div class="col-md-12" ng-view></div>
       </div>
     </div>
 
@@ -44,13 +35,6 @@
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
   <![endif]-->
 
-
-
-  <div>Angular seed app: v<span app-version></span></div>
-  </div>
-  <!-- In production use:
-  <script src="//ajax.googleapis.com/ajax/libs/angularjs/x.x.x/angular.min.js"></script>
-  -->
   <script src="bower_components/jquery/dist/jquery.js"></script>
   <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
   <script src="bower_components/angular/angular.js"></script>

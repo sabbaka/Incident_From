@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html lang="en" ng-app="resultsApp" class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html lang="en" ng-app="resultsApp" class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html lang="en" ng-app="resultsApp" class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html lang="en" ng-app="resultsApp" class="no-js"> <!--<![endif]-->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>My AngularJS App</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body ng-controller="mainController" ng-view>
+{
+"workflowCreationInformation"
+:
+{
+"workflowTypeName"
+:
+"Incident Report", "name"
+:
+"Report - 2013.05.09"
+}
+,
+"workflowStepUpdateInformation"
+:
+{
+"stepIdOrName"
+:
+"Initial Step", "fields"
+:
+[{"name": "Date and Time of Incident", "values": ["{{data.dateTime}}"]}, {
+"name": "Reported By",
+"values": ["{{data.reportedBy}}"]
+}, {"name": "Company of Reporter", "values": ["{{data.companyReporter}}"]}, {
+"name": "Contact Number",
+"values": ["{{data.contactNumber}}"]
+}, {"name": "Supervisor Name", "values": ["{{data.supervisorName}}"]}, {
+"name": "High Level Description of Incident",
+"values": ["{{data.description}}"]
+}, {"name": "Well Number", "values": ["{{data.wellNumber}}"]}, {"name": "Region", "values": ["{{data.wellNumber.region}}"]}, {
+"name": "State",
+"values": ["{{data.wellNumber.state}}"]
+}, {"name": "Field Office", "values": ["{{data.wellNumber.fieldoffice}}"]}, {
+"name": "Incident Severity (Check all that Apply)",
+"values":
+[<span data-ng-show="data.severity.none">"None Apply"</span>
+<span data-ng-if="!data.severity.none" ng-repeat="option in data.severity">"{{option}}",</span>]
+},
+
+<span ng-repeat="row in data.rows track by $index">
+{
+"name": "Description of Corrective Action ({{row.id}})",
+"values": ["description"]
+}, {"name": "Action Taken By (name) ({{row.id}})", "values": ["{{row.name}}"]}, {
+"name": "Company ({{row.id}})",
+"values": ["{{row.company}}"]
+}, {"name": "Date ({{row.id}})", "values": ["{{row.date}}"]},
+</span>
+}
+<script src="bower_components/angular/angular.js"></script>
+<script src="results.js"></script>
+</body>
+</html>
+

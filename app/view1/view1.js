@@ -10,16 +10,17 @@ angular.module('myApp.view1', ['ngRoute'])
   });
 }])
 
-.controller('View1Ctrl', function($scope, $rootScope, companies, wells, storageService) {
+.controller('View1Ctrl', function($scope, $rootScope, companies, wells, storageService, $filter, $window) {
     $scope.data = storageService.getData()
 
-    $scope.data = new Object($scope.data);
+    //$scope.data = new Object($scope.data);
 
     $scope.wellTypes = wells.get();
 
     $scope.companies = companies;
 
-    console.log(storageService.getData());
+
+    //console.log(storageService.getData());
 
     //storageService.addData($scope.data);
 

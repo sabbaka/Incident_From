@@ -1,4 +1,4 @@
-<div class="col-md-12 table-responsive">
+<div class="col-md-12 table">
     <table class="table table-stripped">
         <tr><th colspan="5"><span data-ng-click="addRow()" class="glyphicon glyphicon-plus"></span></th></tr>
         <tr>
@@ -23,7 +23,7 @@
                         </div>
                     </a>
                     <ul style="z-index:1000;" class="dropdown-menu" role="menu" aria-labelledby="dLabel">
-                        <datetimepicker style="z-index:1000;" data-ng-model="row.date" data-datetimepicker-config="{ dropdownSelector: '.my-toggle-select' }"></datetimepicker>
+                        <datepicker data-ng-model="row.date"></datepicker>
                     </ul>
                 </div>
             </td>

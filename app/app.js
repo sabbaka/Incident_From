@@ -45,11 +45,20 @@ angular.module('myApp').factory('wells', function wellsFactory() {
 });
 
 angular.module('myApp').service('storageService', function(){
-  var info = [];
+  var info = {};
+  info.rows = [];
 
   var addData = function(data) {
     info.push(data);
   };
+
+  var getRows = function() {
+    return info.rows;
+  };
+
+  var putRows = function(rows) {
+    info.rows = rows;
+  }
 
   var getData = function() {
     return info;
@@ -57,6 +66,8 @@ angular.module('myApp').service('storageService', function(){
 
     return {
         addData: addData,
-        getData: getData
+        getData: getData,
+        putRows: putRows,
+        getRows: getRows
     };
 });

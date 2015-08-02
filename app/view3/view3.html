@@ -1,14 +1,15 @@
 <div class="col-md-12 table-responsive">
-    <form name="form">
+    <form name="form" ng-submit="sendData()">
     <h2>General Information</h2>
-    <button type="submit">Submit</button>
+    <button class="btn btn-default" data-ng-disabled="form.$invalid" type="submit">Submit</button>
     <table class="table table-stripped">
         <tr>
             <td>Date and Time of Incident</td>
             <td>
-                <input type="hidden" name="dateTime" ng-model="data.dateTime" required/>
-                <span>{{data.dateTime}}</span>
+                <input type="hidden" name="dateTime" ng-model="data.dateTime" ng-pattern="datetimeRegexp" required/>
+                <span>{{data.dateTime | date:'yyyy-MM-dd HH:mm'}}</span>
                 <span data-ng-show="form.dateTime.$error.required">This field is required.</span>
+                <span data-ng-show="form.dateTime.$error.pattern">Wrong date format.</span>
             </td>
         </tr>
         <tr>
@@ -30,9 +31,10 @@
         <tr>
             <td>Contact Number</td>
             <td>
-                <input type="hidden" name="contactNumber" ng-model="data.contactNumber" required/>
+                <input type="hidden" name="contactNumber" ng-model="data.contactNumber" ng-pattern="usPhone" required/>
                 <span>{{data.contactNumber}}</span>
                 <span data-ng-show="form.contactNumber.$error.required">This field is required.</span>
+                <span data-ng-show="form.contactNumber.$error.pattern">Please enter a valid US number like 333.333.3333</span>
             </td>
         </tr>
         <tr>
@@ -54,7 +56,7 @@
             <td>Well Number</td>
             <td>
                 <input type="hidden" name="wellNumber" ng-model="data.wellNumber" required/>
-                <span>{{data.wellNumber}}</span>
+                <span>{{data.wellNumber.name}}</span>
                 <span data-ng-show="form.wellNumber.$error.required">This field is required.</span>
             </td>
         </tr>
@@ -92,10 +94,23 @@
         </tr>
     </table>
     <h2>Immediate Corrective Action(s)</h2>
-        <table class="table table-stripped">
-
+        <table class="table table-stripped" data-ng-repeat="row in data.rows track by $index">
+            <tr>
+                <td>Description of Corrective Action ({{row.id}})</td>
+                <td>{{row.description}}</td>
+            </tr>
+            <tr>
+                <td>Action Taken By (name) ({{row.id}}):</td>
+                <td>{{row.name}}</td>
+            </tr>
+            <tr>
+                <td>Company ({{row.id}})</td>
+                <td>{{row.company}}</td>
+            </tr>
+            <tr>
+                <td>Date ({{row.id}})</td>
+                <td>{{row.date}}</td>
+            </tr>
         </table>
-    <table class="table table-stripped">
-    </table>
     </form>
 </div>

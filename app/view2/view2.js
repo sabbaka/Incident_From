@@ -10,15 +10,17 @@ angular.module('myApp.view2', ['ngRoute'])
   });
 }])
 
-.controller('View2Ctrl', function($scope, $rootScope, companies,storageService) {
+.controller('View2Ctrl', function($scope, $rootScope, companies, storageService) {
       $scope.companies = companies;
+
+      $scope.rows = storageService.getRows();
 
       $scope.addRow = function() {
         if($scope.rows === undefined) {
           $scope.rows = [];
         }
         if($scope.rows.length < 5) {
-          $scope.rows.push({'edit':true});
+          $scope.rows.push({'id':$scope.rows.length+1,'edit':true});
         }
       };
 
@@ -30,5 +32,8 @@ angular.module('myApp.view2', ['ngRoute'])
           $scope.rows.splice(index, 1);
       };
 
-      console.log(storageService.getData());
+      $rootScope.$on("$routeChangeStart", function (event, next, current) {
+          storageService.putRows($scope.rows);
+      });
+
 });
